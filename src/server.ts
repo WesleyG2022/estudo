@@ -1,9 +1,10 @@
 import express from "express"
+import { categoriaRoutes } from "./routers/categoria.routes";
 const porta = 9090
+const app = express();
 
-const app = express()
-app.get('/', function (req, res) {
-  res.send('Hello World')
-})
+app.use(express.json());
 
-app.listen(porta, ()=>{console.log(`Servidor Rodando na porta: ${porta}`)})
+app.use("/categoria", categoriaRoutes)
+
+app.listen(porta, () => { console.log(`Servidor Rodando na porta: ${porta}`) })
