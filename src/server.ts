@@ -1,14 +1,15 @@
 import express from "express"
 import { categoriaRoutes } from "./routers/categoria.routes";
-import { expesificacoesRoutes } from "./routers/espesificacao.routes";
+import { espesificacoesRoutes } from "./routers/espesificacao.routes";
+
 const porta = 9090
 const app = express();
 
 app.use(express.json());
 
-app.use("/categoria", categoriaRoutes)
+app.use("/categoria", categoriaRoutes);
 
-app.use("/expesificacao", expesificacoesRoutes)
+app.use("/expesificacao", espesificacoesRoutes);
 
 
 app.listen(porta, () => { console.log(`Servidor Rodando na porta: ${porta}`) })

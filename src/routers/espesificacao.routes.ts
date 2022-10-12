@@ -1,26 +1,23 @@
 import { Router } from "express"
-import { expesificacaoRepository } from "../model/expesificacao/repository/expesificacao.repository";
-import { criarExpisificacao } from "../services/expesificacao-categoria.service";
+import { especificacoesRepository } from "../model/expesificacao/repository/expesificacao.repository";
+import { CriarEspecificacoesUseCase } from "../model/expesificacao/use-case/criar-especificacoes.use-case";
+import { EspecificacoesController } from "../model/expesificacao/use-case/especificacoes.controller";
+import { ListarEspecificacoesUseCase } from "../model/expesificacao/use-case/listar-especificacoes.use-case";
 
 
-const expesificacoesRoutes = Router();
+const espesificacoesRoutes = Router();
 
-const expesificacoesRepository = new expesificacaoRepository()
+const espesificacoesRepository = new especificacoesRepository();
+const espesificacoesUseCase = new CriarEspecificacoesUseCase(espesificacoesRepository);
+const listarEspecificacoesUseCase = new ListarEspecificacoesUseCase(espesificacoesRepository)
+const espesificacoesController = new EspecificacoesController(espesificacoesUseCase, listarEspecificacoesUseCase);
 
-expesificacoesRoutes.post('/', (req, res) => {
-    try {
-        const { nome, descricao } = req.body;
-        const creatCategoriService = new criarExpisificacao(expesificacoesRepository)
-        creatCategoriService.execult({ nome, descricao });
-        res.status(200).send();
-    } catch (erro) {
-        res.status(400).json({ erro: "Essa categoria já existe!" });
-    }
+espesificacoesRoutes.post('/', (req, res) => {
+    return espesificacoesController.criar(req, res);
 });
 
-expesificacoesRoutes.get('/', (req, res) => {
-    const all = expesificacoesRepository.findAll()
-    res.json(all)
+espesificacoesRoutes.get('/', (req, res) => {
+    return espesificacoesController.Lista(req, res)
 });
 
-export { expesificacoesRoutes }
+export { espesificacoesRoutes }
