@@ -1,9 +1,5 @@
-import { Categoria } from "../model/categoria.model";
-
-export interface ICreateCategoryDTO {
-    nome: string;
-    descricao: string;
-}
+import { Categoria } from "../categoria.model";
+import { ICreateCategoryDTO } from "./repository-interface/categoriarepositori.interface.ts";
 
 class categoryRepository {
     private categoriaBanco: Categoria[]

@@ -1,0 +1,6 @@
+Repository: Responsavel por manipular o nosso banco de dados (Criar novo dado, Edita, Deletar e Listar);
+
+Principio de Substituição de Liskov:
+O Princípio de Substituição de Liskov diz que objetos podem ser substituídos por seus subtipos sem que isso afete a execução correta do programa.
+
+Repository => Quando criamos uma interface para manipular o repository podemos trocar o banco de dados sem afetar o funcionamento do progama.
