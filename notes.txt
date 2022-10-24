@@ -4,3 +4,10 @@ Principio de Substituição de Liskov:
 O Princípio de Substituição de Liskov diz que objetos podem ser substituídos por seus subtipos sem que isso afete a execução correta do programa.
 
 Repository => Quando criamos uma interface para manipular o repository podemos trocar o banco de dados sem afetar o funcionamento do progama.
+
+
+Pipe: A função pipe que você viu no gulp na verdade vem do node.js.
+
+A função pipe faz parte da API Stream do node.js. Muitas coisas em Node.js são Streams, como conexão HTTP, abrir arquivos, entre outros. Stream pode ser traduzido como corrente ou córrego, ou seja, a comunicação entre os nós são aos poucos, como um fino córrego. Por exemplo o YouTube, nós vemos os vídeos sendo baixado aos poucos. Aquilo se chama Streaming de vídeo, é onde o servidor vai mandando bytes do arquivo aos poucos, permitindo você assistir o vídeo. O mesmo se faz com qualquer tipo de arquivo, é melhor trabalhar com o server em streaming porquê evita milhões de usuários processarem o mesmo arquivo, sendo que o servidor pode ser mais inteligente mandando aos poucos o arquivo (em forma de Download de arquivos). O node.js faz streaming melhor do que muitas plataformas.
+
+No caso o pipe transforma algo readable para writeable, ou seja, ele transforma um fluxo legível para um fluxo de gravação ao coletar dados.
